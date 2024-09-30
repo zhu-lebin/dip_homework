@@ -50,6 +50,7 @@ def point_guided_deformation(image, source_pts, target_pts, alpha=1.0, eps=1e-8)
     # print(image.shape)
     # print(source_pts)
     warped_image = np.array(image)
+    mask_warp = np.zeros(image.shape[:2], dtype=np.uint8)
     # 
     ### FILL: 基于MLS or RBF 实现 image warping
     warped_image = np.zeros(image.shape, dtype=np.uint8)
@@ -77,7 +78,18 @@ def point_guided_deformation(image, source_pts, target_pts, alpha=1.0, eps=1e-8)
             q = q.astype(int)
             if q[0] >= 0 and q[0] < image.shape[1] and q[1] >= 0 and q[1] < image.shape[0]:
                 warped_image[q[1],q[0]] = image[i,j] 
-             
+                mask_warp[q[1],q[0]] = 255
+    for i in range(image.shape[0]):
+        for j in range(image.shape[1]):
+            if mask_warp[i,j] == 0:
+                points_near = []
+                for s in range(i-2,i+2):
+                    for t in range(j-2,j+2):
+                        if s >= 0 and s < image.shape[0] and t >= 0 and t < image.shape[1] and mask_warp[s,t] == 255:
+                            points_near.append([t,s])  
+                if len(points_near) > 0:
+                    warped_image[i,j] = np.mean([warped_image[pt[1],pt[0]] for pt in points_near])
+                    mask_warp[i,j] = 255       
     return warped_image
 
 def base_func(p,q):
