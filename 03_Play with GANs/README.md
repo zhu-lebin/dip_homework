@@ -47,10 +47,12 @@ See [作业03-Play_with_GANs.pptx](https://rec.ustc.edu.cn/share/705bfa50-6e53-1
 - 损失函数里面cgan loss与l1 loss的比例可以调整，多次实验对比可以得出cgan损失占比小一些更好，我选择的比例为1：50
 - cgan loss的加入相比于纯l1 loss的结果并没有提升，实验结果两者的验证集l1 loss最后结果都是0.10,这一点在pix2pix项目论文里也有提及
 - cgan结果
+
 ![image](./pics/cgan1.png)
 ![image](./pics/cgan2.png)
 ![image](./pics/cgan3.png)
 - l1结果
+
 ![image](./pics/l1_1.png)
 ![image](./pics/l1_2.png)
 ![image](./pics/l1_3.png)
