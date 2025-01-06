@@ -73,21 +73,13 @@ python train.py --colmap_dir data/chair --checkpoint_dir data/chair/checkpoints
 ### Compare with the original 3DGS Implementation
 Since we use a pure PyTorch implementation, the training speed and GPU memory usage are far from satisfactory. Also, we do not implement some crucial parts like adaptive Gaussian densification scheme. Run the [original 3DGS implementation](https://github.com/graphdeco-inria/gaussian-splatting) with the same dataset to compare the results.
 
+
 ### 实验结果
 视频位于assets文件夹下，在chair数据上结果不是很好
-<video width="320" height="240" controls>
-  <source src="./assets/chair_0.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src="./assets/chair_0.gif" width="320" height="240" alt="Chair Result">
 
 在lego上结果还行
-<video width="320" height="240" controls>
-  <source src="./assets/lego_0.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src="./assets/lego_0.gif" width="320" height="240" alt="Lego Result">
 
-使用原版3dgs在lego数据集上结果
-<video width="320" height="240" controls>
-  <source src="./assets/lego_2.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+deformable 3dgs在lego数据集上结果
+<img src="./assets/lego_2.gif" width="320" height="240" alt="Original 3DGS Lego Result">
