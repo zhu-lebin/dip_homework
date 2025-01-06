@@ -75,11 +75,15 @@ Since we use a pure PyTorch implementation, the training speed and GPU memory us
 
 
 ### 实验结果
+
+
 视频位于assets文件夹下，在chair数据上结果不是很好
 <img src="./assets/chair_0.gif" width="320" height="240" alt="Chair Result">
 
+
 在lego上结果还行
 <img src="./assets/lego_0.gif" width="320" height="240" alt="Lego Result">
+
 
 deformable 3dgs在lego数据集上结果
 <img src="./assets/lego_2.gif" width="320" height="240" alt="Original 3DGS Lego Result">
